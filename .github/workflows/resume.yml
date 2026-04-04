@@ -23,7 +23,7 @@ jobs:
         run: ls -R   
         
       - name: Moving PDF
-        run: mv main.pdf resume/resume.pdf
+        run: mv main.pdf resume/resume.pdf ; cd resume
 
       - name: Push PDF to GitHub
         run: |
