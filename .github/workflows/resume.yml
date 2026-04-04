@@ -39,6 +39,7 @@ jobs:
         run: |
           pwd
           ls -R
+          mv ${{ github.workspace }}/resume.pdf resume.pdf
           git config user.name "github-actions"
           git config user.email "actions@github.com"
           git add ${{ github.workspace }}/resume.pdf
