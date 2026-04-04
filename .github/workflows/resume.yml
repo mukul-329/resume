@@ -21,7 +21,7 @@ jobs:
 
       - name: Push PDF to GitHub
         run: |
-          cp ./resume.pdf .
+          cp resume/resume.pdf .
           git config user.name "github-actions"
           git config user.email "actions@github.com"
           git add resume.pdf
