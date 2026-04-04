@@ -28,20 +28,19 @@ jobs:
       - name: Moving PDF
         run: mv main.pdf resume/resume.pdf
 
-      - name: Ensure correct directory
-        run: pwd && ls -a && ls resume -a
-
       - name: Checkout repo
         uses: actions/checkout@v3
         
+      - name: Ensure correct directory
+        run: pwd && ls -a && ls resume -a
+        
       - name: Push PDF to GitHub
-        working-directory: ${{ github.workspace }}/resume/
+        # working-directory: ${{ github.workspace }}/resume/
         run: |
           pwd
           ls -R
           git config user.name "github-actions"
           git config user.email "actions@github.com"
-          git remote set-url origin https://github.com/${{ github.repository }}.git
-          git add resume.pdf
+          git add resume/resume.pdf
           git commit -m "Auto-update resume"
           git push
