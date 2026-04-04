@@ -30,6 +30,7 @@ jobs:
 
       - name: Push PDF to GitHub
         run: |
+          cd ..
           pwd
           ls -a
           cp resume/resume.pdf .
