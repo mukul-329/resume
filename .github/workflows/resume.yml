@@ -22,8 +22,8 @@ jobs:
       - name: Debug files
         run: ls -R   
         
-      - name: Rename PDF
-        run: mv resume/main.pdf resume/resume.pdf
+      - name: Moving PDF
+        run: mv main.pdf resume/resume.pdf
 
       - name: Push PDF to GitHub
         run: |
