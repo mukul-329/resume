@@ -23,14 +23,13 @@ jobs:
         run: ls -R   
         
       - name: Moving PDF
-        run: mv main.pdf resume/resume.pdf
+        run: mv main.pdf resume.pdf
 
       - name: Ensure correct directory
         run: pwd && ls -a  
 
       - name: Push PDF to GitHub
         run: |
-          cd ..
           pwd
           ls -a
           cp resume/resume.pdf .
