@@ -15,10 +15,9 @@ jobs:
           git clone https://git:${{ secrets.OVERLEAF_TOKEN }}@git.overleaf.com/${{secrets.PROJECT_ID}} resume
 
       - name: Compile LaTeX
-        run: |
-          sudo apt-get install texlive-full -y
-          cd resume
-          latexmk -pdf main.tex
+        uses: xu-cheng/latex-action@v3
+        with:
+         root_file: main.tex
 
       - name: Push PDF to GitHub
         run: |
