@@ -18,7 +18,10 @@ jobs:
         uses: xu-cheng/latex-action@v3
         with:
          root_file: resume/main.tex
-         
+
+      - name: Debug files
+        run: ls -R   
+        
       - name: Rename PDF
         run: mv resume/main.pdf resume/resume.pdf
 
