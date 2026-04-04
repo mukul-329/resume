@@ -23,13 +23,13 @@ jobs:
         run: ls -R   
         
       - name: Moving PDF
-        run: mv main.pdf resume/resume.pdf ; cd resume
+        run: mv main.pdf resume/resume.pdf
 
       - name: Push PDF to GitHub
         run: |
           cp resume/resume.pdf .
           git config user.name "github-actions"
           git config user.email "actions@github.com"
-          git add resume.pdf
+          git add resume/resume.pdf
           git commit -m "Auto-update resume"
           git push
