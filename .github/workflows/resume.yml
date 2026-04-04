@@ -18,6 +18,9 @@ jobs:
         uses: xu-cheng/latex-action@v3
         with:
          root_file: resume/main.tex
+         
+      - name: Rename PDF
+        run: mv resume/main.pdf resume/resume.pdf
 
       - name: Push PDF to GitHub
         run: |
