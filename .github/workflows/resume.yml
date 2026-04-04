@@ -12,7 +12,7 @@ jobs:
     steps:
       - name: Clone Overleaf project
         run: |
-          git clone https://git:${{ secrets.OVERLEAF_TOKEN }}@git.overleaf.com/Mukul-Resume-2026 resume
+          git clone https://git:${{ secrets.OVERLEAF_TOKEN }}@git.overleaf.com/${{secrets.Project_ID}} resume
 
       - name: Compile LaTeX
         run: |
