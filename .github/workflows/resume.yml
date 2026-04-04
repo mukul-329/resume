@@ -26,7 +26,7 @@ jobs:
         run: mv main.pdf resume/resume.pdf
 
       - name: Ensure correct directory
-        run: pwd && ls -a && ls resume -a && cd resume
+        run: pwd && ls -a && ls resume -a
 
       - name: Push PDF to GitHub
         working-directory: ${{ github.workspace }}
