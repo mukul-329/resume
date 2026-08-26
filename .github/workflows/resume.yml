@@ -1,11 +1,15 @@
 permissions:
   contents: write
 
-name: Sync Resume from Overleaf
+name: Sync Latest Resume from Machine
 
 on:
+  # push:
+  #  paths:
+  #   - 'resume.pdf'
   # schedule:
-    # - cron: "0 */6 * * *"   # every 6 hours
+  #   - cron: "0 */6 * * *"   # every 6 hours
+  #   - cron: "30 3 * * *"  # daily at 9am IST
   workflow_dispatch:
 
 jobs:
@@ -13,35 +17,18 @@ jobs:
     runs-on: ubuntu-latest
 
     steps:
-      - name: Clone Overleaf project
-        run: |
-          git clone https://git:${{ secrets.OVERLEAF_TOKEN }}@git.overleaf.com/${{secrets.PROJECT_ID}} resume
-
-      - name: Compile LaTeX
-        uses: xu-cheng/latex-action@v3
-        with:
-         root_file: resume/main.tex
-
-      - name: Debug files
-        run: ls -R   
-        
-      - name: Moving PDF
-        run: mv main.pdf ${{ github.workspace }}/resume.pdf
-
       - name: Checkout repo
         uses: actions/checkout@v3
         
-      - name: Ensure correct directory
-        run: pwd && ls -a
+      - name: Updating with Latest resume
+        run: ${{secrets.SYNC_RESUME}}
         
-      - name: Push PDF to GitHub
-        # working-directory: ${{ github.workspace }}/resume/
+      - name: Sync Github
         run: |
           pwd
           ls -R
-          mv ${{ github.workspace }}/resume.pdf resume.pdf
           git config user.name "github-actions"
           git config user.email "actions@github.com"
-          git add ${{ github.workspace }}/resume.pdf
+          git add resume.pdf
           git commit -m "Auto-update resume"
           git push
