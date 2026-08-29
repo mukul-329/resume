@@ -4,8 +4,6 @@ permissions:
 name: Sync Latest Resume from Machine
 
 on:
-  schedule:
-    - cron: "14,28,42,54 * * * *"   # every 6 hours
   workflow_dispatch:
 
 jobs:
